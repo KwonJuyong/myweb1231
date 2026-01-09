@@ -7,102 +7,86 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    /* 페이지 전환용 설정 */
+    /* 섹션 전환을 위한 기본 숨김 처리 */
     .view-section { display: none; }
     #home-view { display: block; } /* 첫 화면은 홈 */
     .btn { border-radius: 0.5rem; }
+    /* 이미지 비율 유지 */
     img { object-fit: cover; }
-    /* 내비게이션 활성화 스타일 */
-    .nav-btn:hover { color: #3b82f6; transition: 0.2s; }
   </style>
 </head>
 <body class="bg-gray-100 text-gray-900">
 
   <div class="max-w-5xl mx-auto p-4">
-    <header class="flex items-center justify-between gap-4 py-4 border-b border-gray-300 mb-6 bg-white px-6 rounded-xl shadow-sm">
-      <div class="flex items-center gap-3 cursor-pointer" onclick="showView('home')">
-        <div class="w-12 h-12 rounded-full bg-gray-200 overflow-hidden border-2 border-gray-100">
+    <header class="flex items-center justify-between gap-4 py-4 border-b border-gray-300 mb-6">
+      <div class="flex items-center gap-2 cursor-pointer" onclick="showView('home')">
+        <div class="w-10 h-10 rounded-full bg-gray-300 overflow-hidden border">
           <img src="권주용.jpg" alt="권주용 프로필" class="w-full h-full">
         </div>
         <div>
-          <p class="font-bold text-lg mb-0">권주용</p>
-          <p class="text-xs text-gray-500 mb-0">한림대학교 / 빅데이터 / 4학년</p>
+          <p class="font-semibold mb-0">권주용</p>
+          <p class="text-sm text-gray-600 mb-0">Hallym Univ. Big Data</p>
         </div>
       </div>
-      <nav class="flex items-center gap-6">
-        <button onclick="showView('home')" class="nav-btn text-sm font-bold">HOME</button>
-        <button onclick="showView('about')" class="nav-btn text-sm font-bold">ABOUT</button>
-        <button onclick="showView('calc')" class="nav-btn text-sm font-bold text-blue-600">CALC</button>
+      <nav class="flex items-center gap-4">
+        <button onclick="showView('home')" class="text-sm font-medium hover:text-blue-500">Home</button>
+        <button onclick="showView('about')" class="text-sm font-medium hover:text-blue-500">About Me</button>
+        <a href="#contact" class="text-sm font-medium hover:text-blue-500">Contact</a>
       </nav>
     </header>
 
     <main id="home-view" class="view-section">
-      <section class="flex flex-col md:flex-row items-center p-8 mb-8 border border-gray-200 rounded-2xl bg-white shadow-sm">
-        <div class="w-full">
-          <h1 class="text-3xl font-extrabold tracking-tight">
-            안녕하세요, <span class="text-[#3b3b4b]">서버 & 보안</span>을 연구하는 권주용입니다.
-          </h1>
-          <p class="mt-4 text-gray-600">
-            현재 암호응용연구실 학부연구생으로 활동 중이며,<br>데이터 분석과 보안 인프라 구축에 관심이 많습니다.
-          </p>
-        </div>
-        <div class="hidden md:block w-48 h-48 ml-auto overflow-hidden rounded-2xl shadow-inner bg-gray-50">
-          <img src="권주용.jpg" alt="권주용" class="w-full h-full">
-        </div>
+      <section class="mb-10 text-center py-12 bg-white rounded-3xl border border-gray-200 shadow-sm">
+        <h1 class="text-4xl font-extrabold mb-4">Project Portfolio</h1>
+        <p class="text-gray-600">아래 카드들을 클릭하여 각 프로젝트와 자기소개를 확인하세요.</p>
       </section>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <article onclick="showView('about')" class="cursor-pointer group bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
-          <div class="flex justify-between items-start mb-4">
-            <div class="p-3 bg-blue-50 rounded-xl text-blue-600 text-2xl">👤</div>
-            <span class="text-[10px] font-bold text-gray-400 border px-2 py-1 rounded-md">VIEW PAGE</span>
-          </div>
-          <h3 class="font-bold text-xl mb-2 group-hover:text-blue-600">Detailed About Me</h3>
-          <p class="text-gray-500 text-sm">학부 연구 활동, 보유 기술, 교육 이력 등 상세한 자기소개 페이지를 확인하세요.</p>
+        <article onclick="showView('about')" class="group cursor-pointer rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-xl hover:-translate-y-1">
+          <div class="text-3xl mb-4 text-blue-500">👤</div>
+          <h3 class="font-bold text-xl group-hover:text-blue-600">About Me</h3>
+          <p class="mt-2 text-gray-600 text-sm">저의 기술 스택, 관심 분야 및 학부 연구생 활동에 대한 상세 정보를 확인하세요.</p>
+          <div class="mt-4 text-blue-500 font-semibold text-sm">상세 보기 →</div>
         </article>
 
-        <article onclick="showView('calc')" class="cursor-pointer group bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
-          <div class="flex justify-between items-start mb-4">
-            <div class="p-3 bg-orange-50 rounded-xl text-orange-600 text-2xl">🔢</div>
-            <span class="text-[10px] font-bold text-gray-400 border px-2 py-1 rounded-md">RUN APP</span>
-          </div>
-          <h3 class="font-bold text-xl mb-2 group-hover:text-orange-600">JavaScript Calculator</h3>
-          <p class="text-gray-500 text-sm">부트스트랩으로 디자인된 실시간 연산 계산기 프로젝트를 직접 실행해보세요.</p>
+        <article onclick="showView('calc')" class="group cursor-pointer rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-xl hover:-translate-y-1">
+          <div class="text-3xl mb-4 text-orange-500">🔢</div>
+          <h3 class="font-bold text-xl group-hover:text-orange-600">Calculator</h3>
+          <p class="mt-2 text-gray-600 text-sm">Bootstrap과 JavaScript를 활용해 제작한 다기능 계산기 프로젝트입니다.</p>
+          <div class="mt-4 text-orange-500 font-semibold text-sm">도구 실행 →</div>
         </article>
       </div>
     </main>
 
     <main id="about-view" class="view-section">
       <div class="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-sm">
-        <div class="h-40 bg-[#3b3b4b]"></div>
-        <div class="px-8 pb-10">
-          <div class="flex justify-between items-end -mt-16 mb-8">
-            <div class="w-32 h-32 rounded-3xl border-4 border-white shadow-xl overflow-hidden bg-gray-100">
-                <img src="권주용.jpg" alt="권주용 사진" class="w-full h-full">
+        <div class="h-32 bg-[#3b3b4b]"></div>
+        <div class="px-8 pb-8">
+          <div class="relative flex justify-between items-end -mt-12 mb-6">
+            <div class="w-24 h-24 bg-gray-300 rounded-2xl border-4 border-white shadow-md overflow-hidden">
+                <img src="권주용.jpg" alt="권주용 큰 프로필" class="w-full h-full">
             </div>
-            <button onclick="showView('home')" class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-xl text-sm font-bold transition-all">← 뒤로가기</button>
+            <button onclick="showView('home')" class="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg text-sm font-bold transition-colors">홈으로</button>
           </div>
+          <h2 class="text-2xl font-bold">권주용 <span class="text-sm font-normal text-gray-500">Kwon Juyong</span></h2>
+          <p class="text-blue-600 font-medium mb-4">Server & Security Enthusiast</p>
           
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-6">
-            <div class="md:col-span-2">
-              <h2 class="text-3xl font-black mb-2">권주용</h2>
-              <p class="text-blue-600 font-bold text-lg mb-6">Server & Information Security Student</p>
-              
-              <h4 class="font-bold text-gray-800 mb-3 border-b pb-2">Experience</h4>
-              <ul class="space-y-3 text-gray-700 text-sm">
-                <li class="flex gap-3"><strong>• 학력:</strong> 한림대학교 소프트웨어학부 빅데이터 전공 (4학년)</li>
-                <li class="flex gap-3"><strong>• 연구:</strong> 암호응용연구실(Crypto Lab) 학부연구생 활동 중</li>
-                <li class="flex gap-3"><strong>• 관심:</strong> 서버 보안, 네트워크 암호학, 프론트엔드 최적화</li>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+            <div>
+              <h4 class="font-bold border-b pb-2 mb-3">Education & Activity</h4>
+              <ul class="text-sm text-gray-700 space-y-2">
+                <li>• 한림대학교 소프트웨어학부 4학년 재학</li>
+                <li>• 빅데이터 전공</li>
+                <li>• 암호응용연구실 학부연구생</li>
               </ul>
             </div>
-            
-            <div class="bg-gray-50 p-6 rounded-2xl">
-              <h4 class="font-bold text-gray-800 mb-4">Core Skills</h4>
+            <div>
+              <h4 class="font-bold border-b pb-2 mb-3">Interests</h4>
               <div class="flex flex-wrap gap-2">
-                <span class="bg-white border px-3 py-1 rounded-lg text-xs font-semibold">React</span>
-                <span class="bg-white border px-3 py-1 rounded-lg text-xs font-semibold">Next.js</span>
-                <span class="bg-white border px-3 py-1 rounded-lg text-xs font-semibold">Tailwind</span>
-                <span class="bg-[#3b3b4b] text-white px-3 py-1 rounded-lg text-xs font-semibold">Security</span>
+                <span class="bg-gray-100 px-3 py-1 rounded-full text-xs">정보보안</span>
+                <span class="bg-gray-100 px-3 py-1 rounded-full text-xs">암호학</span>
+                <span class="bg-gray-100 px-3 py-1 rounded-full text-xs">네트워크 보안</span>
+                <span class="bg-gray-100 px-3 py-1 rounded-full text-xs">백엔드 개발</span>
               </div>
             </div>
           </div>
@@ -111,81 +95,65 @@
     </main>
 
     <main id="calc-view" class="view-section py-10">
-      <div class="max-w-md mx-auto">
-        <div class="mb-6 text-center">
-            <span class="bg-orange-100 text-orange-600 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Utility Project</span>
-            <h2 class="text-2xl font-black mt-2">JS Calculator</h2>
-            <p class="text-gray-500 text-sm">Bootstrap-based UI & Logic</p>
-        </div>
-        
-        <div class="card shadow-2xl border-0 p-3 bg-dark" style="border-radius: 2rem;">
-          <div class="card-body">
-            <input type="text" id="display" class="form-control mb-4 text-end fs-1 fw-bold border-0 bg-dark text-white" value="0" disabled style="height: 90px; box-shadow: none;">
-
-            <div class="row g-2 mb-2">
-              <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 border-0" onclick="append(7)">7</button></div>
-              <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 border-0" onclick="append(8)">8</button></div>
-              <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 border-0" onclick="append(9)">9</button></div>
-              <div class="col-3"><button class="btn btn-primary w-100 py-3 fs-4 shadow-sm" onclick="setOp('/')">÷</button></div>
-            </div>
-
-            <div class="row g-2 mb-2">
-              <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 border-0" onclick="append(4)">4</button></div>
-              <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 border-0" onclick="append(5)">5</button></div>
-              <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 border-0" onclick="append(6)">6</button></div>
-              <div class="col-3"><button class="btn btn-primary w-100 py-3 fs-4 shadow-sm" onclick="setOp('*')">×</button></div>
-            </div>
-
-            <div class="row g-2 mb-2">
-              <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 border-0" onclick="append(1)">1</button></div>
-              <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 border-0" onclick="append(2)">2</button></div>
-              <div class="col-3"><button class="btn btn-outline-light w-100 py-3 fs-4 border-0" onclick="append(3)">3</button></div>
-              <div class="col-3"><button class="btn btn-primary w-100 py-3 fs-4 shadow-sm" onclick="setOp('-')">-</button></div>
-            </div>
-
-            <div class="row g-2">
-              <div class="col-6"><button class="btn btn-outline-light w-100 py-3 fs-4 border-0" onclick="append(0)">0</button></div>
-              <div class="col-3"><button class="btn btn-warning w-100 py-3 fs-4 text-white shadow-sm" onclick="clearDisplay()">C</button></div>
-              <div class="col-3"><button class="btn btn-success w-100 py-3 fs-4 shadow-sm" onclick="calculate()">=</button></div>
-            </div>
-            <div class="row g-2 mt-2">
-                <div class="col-12"><button class="btn btn-primary w-100 py-2 fs-5" onclick="setOp('+')">+</button></div>
-            </div>
+      <div class="container text-center mb-6">
+        <button onclick="showView('home')" class="btn btn-outline-secondary btn-sm">← 메인 홈으로 돌아가기</button>
+      </div>
+      <div class="card mx-auto shadow-lg border-0" style="max-width: 340px; border-radius: 1.5rem; background: #f8f9fa;">
+        <div class="card-body p-4">
+          <input type="text" id="display" class="form-control mb-4 text-end fs-1 fw-bold border-0 bg-white" value="0" disabled style="height: 80px; border-radius: 1rem; box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);">
+          
+          <div class="row g-2 mb-2">
+            <div class="col-3"><button class="btn btn-white w-100 py-3 fw-bold shadow-sm" onclick="append(7)">7</button></div>
+            <div class="col-3"><button class="btn btn-white w-100 py-3 fw-bold shadow-sm" onclick="append(8)">8</button></div>
+            <div class="col-3"><button class="btn btn-white w-100 py-3 fw-bold shadow-sm" onclick="append(9)">9</button></div>
+            <div class="col-3"><button class="btn btn-primary w-100 py-3 fw-bold shadow-sm" onclick="setOp('/')">÷</button></div>
           </div>
-        </div>
-        <div class="mt-6 text-center">
-            <button onclick="showView('home')" class="text-gray-400 text-sm hover:underline">메인으로 돌아가기</button>
+          <div class="row g-2 mb-2">
+            <div class="col-3"><button class="btn btn-white w-100 py-3 fw-bold shadow-sm" onclick="append(4)">4</button></div>
+            <div class="col-3"><button class="btn btn-white w-100 py-3 fw-bold shadow-sm" onclick="append(5)">5</button></div>
+            <div class="col-3"><button class="btn btn-white w-100 py-3 fw-bold shadow-sm" onclick="append(6)">6</button></div>
+            <div class="col-3"><button class="btn btn-primary w-100 py-3 fw-bold shadow-sm" onclick="setOp('*')">×</button></div>
+          </div>
+          <div class="row g-2 mb-2">
+            <div class="col-3"><button class="btn btn-white w-100 py-3 fw-bold shadow-sm" onclick="append(1)">1</button></div>
+            <div class="col-3"><button class="btn btn-white w-100 py-3 fw-bold shadow-sm" onclick="append(2)">2</button></div>
+            <div class="col-3"><button class="btn btn-white w-100 py-3 fw-bold shadow-sm" onclick="append(3)">3</button></div>
+            <div class="col-3"><button class="btn btn-primary w-100 py-3 fw-bold shadow-sm" onclick="setOp('-')">-</button></div>
+          </div>
+          <div class="row g-2">
+            <div class="col-6"><button class="btn btn-white w-100 py-3 fw-bold shadow-sm" onclick="append(0)">0</button></div>
+            <div class="col-3"><button class="btn btn-warning w-100 py-3 fw-bold text-white shadow-sm" onclick="clearDisplay()">C</button></div>
+            <div class="col-3"><button class="btn btn-success w-100 py-3 fw-bold shadow-sm" onclick="calculate()">=</button></div>
+          </div>
         </div>
       </div>
     </main>
 
-    <section id="contact" class="mt-12 rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
-      <h2 class="text-xl font-bold mb-4">Get In Touch</h2>
-      <form class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input class="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-blue-500 transition-all" type="email" placeholder="Your Email Address" />
-        <button class="bg-[#3b3b4b] text-white py-3 rounded-xl font-bold hover:bg-black transition-all" type="button">Connect</button>
+    <section id="contact" class="mt-12 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+      <h2 class="text-lg font-bold mb-4">Contact</h2>
+      <form class="flex flex-col gap-3">
+        <input class="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none" type="email" placeholder="Email" />
+        <textarea class="w-full rounded-xl border border-gray-200 px-4 py-2 text-sm focus:ring-2 focus:ring-blue-500 outline-none" rows="3" placeholder="Message"></textarea>
+        <button class="bg-[#3b3b4b] text-white py-2 rounded-xl font-bold hover:bg-black transition-colors" type="button">Send</button>
       </form>
     </section>
 
-    <footer class="mt-12 mb-8 text-center">
-      <p class="text-xs text-gray-400 font-medium tracking-widest uppercase">© 2026 KWON JU YONG PORTFOLIO</p>
+    <footer class="mt-10 mb-6 text-center text-xs text-gray-500">
+      <p>© 2026 권주용 Portfolio. Hallym University.</p>
     </footer>
   </div>
 
   <script>
-    /* 1. 화면 전환 함수 (showView) */
+    /* 화면 전환 함수 */
     function showView(viewId) {
-      // 모든 main 섹션을 숨김
-      document.querySelectorAll('main').forEach(el => {
-        el.style.display = 'none';
+      document.querySelectorAll('.view-section').forEach(section => {
+        section.style.display = 'none';
       });
-      // 선택된 섹션만 보여줌
       document.getElementById(viewId + '-view').style.display = 'block';
-      // 화면 맨 위로 스크롤
       window.scrollTo(0, 0);
     }
 
-    /* 2. 계산기 로직 */
+    /* 계산기 로직 */
     const display = document.getElementById('display');
     let expression = '';
 
