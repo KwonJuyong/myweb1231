@@ -1,179 +1,181 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>권주용 포트폴리오</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* 페이지 전환을 위한 스타일 */
+    .view-section { display: none; }
+    #home-view { display: block; } /* 초기 화면 */
+    .btn { border-radius: 0.5rem; }
+    /* 한글 파일명 호환성을 위한 이미지 처리 */
+    img { object-fit: cover; }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
 
-  <head>
-    <meta charset="UTF-8">
-    <title>2026.01.05(1)</title>
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css'>
-
-  </head>
-    
-  <body>
-  <div class="min-h-screen bg-gray-100 text-gray-900">
   <div class="max-w-5xl mx-auto p-4">
-
-    <!-- 👻 상단 바 -->
-    <header class="flex items-center justify-between gap-4">
-      <div class="flex items-center gap-2">
-        <!-- 👻 이미지 삽입 -->
-        <div class="w-10 h-10 rounded-full bg-gray-300">
-          <img src="data:image/jpeg;base64,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" class="rounded-full" />
+    <header class="flex items-center justify-between gap-4 py-4 border-b border-gray-300 mb-6">
+      <div class="flex items-center gap-2 cursor-pointer" onclick="showView('home')">
+        <div class="w-10 h-10 rounded-full bg-gray-300 overflow-hidden border">
+          <img src="권주용.jpg" alt="프로필" class="w-full h-full">
         </div>
         <div>
-          <p class="font-semibold">권주용</p>
-          <p class="text-sm text-gray-700">한림대학교 / 빅데이터 / 4학년</p>
+          <p class="font-semibold mb-0 text-base">권주용</p>
+          <p class="text-xs text-gray-600 mb-0">한림대학교 / 빅데이터 / 4학년</p>
         </div>
       </div>
-
-      <!-- 👻 상단 네비게이션 바 -->
-      <nav class="flex items-center gap-4">
-        <!-- 👻 a 태그(링크 태그. 클릭 시 페이지 내에서 특정영역으로 이동가능) -->
-        <a class="text-sm text-gray-700 hover:text-blue-500" href="#about">About</a>
-        <a class="text-sm text-gray-700 hover:text-blue-500" href="#skills">Skills</a>
-        <a class="text-sm text-gray-700 hover:text-blue-500" href="#projects">Projects</a>
-        <a class="text-sm text-gray-700 hover:text-blue-500" href="#contact">Contact</a>
+      <nav class="flex items-center gap-3">
+        <button onclick="showView('home')" class="text-sm font-medium hover:text-blue-600">Home</button>
+        <button onclick="showView('about')" class="text-sm font-medium hover:text-blue-600">About</button>
+        <button onclick="showView('calc')" class="text-sm font-medium hover:text-blue-600">Calculator</button>
       </nav>
     </header>
 
-    <!-- 👻 첫 번째 section 설명 -->
-    <section class="flex flex-col-2 items-center p-4 mt-6 border border-gray-300 rounded-xl bg-white">
-      <!-- 👻 flex-col 첫 번째 column -->
-      <div class="w-full">
-        <h1 class="text-2xl md:text-3xl font-bold tracking-tight">
-          안녕하세요, <span class="text-[#3b3b4b]">서버&보안</span>을 공부중인 권주용입니다.
-        </h1>
-        <p class="mt-2 text-sm text-gray-700">
-          한림대학교 재학중이며, 현재 학부연구생으로 활동하고있습니다.
-        </p>
+    <main id="home-view" class="view-section">
+      <section class="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm mb-8 text-center">
+        <h1 class="text-3xl font-bold mb-2">My Projects</h1>
+        <p class="text-gray-600">아래 카드를 클릭하여 상세 페이지로 이동하세요.</p>
+      </section>
 
-        <!-- 👻 flex + gap + 버튼 배경색 + hover -->
-        <div class="mt-4 flex gap-2">
-          <a href="#projects" class="px-4 py-2 rounded-lg text-sm font-semibold bg-gray-300 hover:bg-blue
-                   ">
-            프로젝트 보기
-          </a>
-          <a href=" #contact" class="px-4 py-2 rounded-lg text-sm font-semibold border border-2
-                   ">
-            연락하기
-          </a>
-        </div>
-      </div>
-
-      <!-- 👻 flex-col 두 번째 column -->
-      <div class="flex flex-col w-full ml-auto items-center gap-3">
-        <!-- 👻 이미지 삽입 -->
-        <div class="h-28 w-28 rounded-full bg-gray-300">
-          <img src="data:image/jpeg;base64,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" class="rounded-full" />
-        </div>
-      </div>
-    </section>
-
-    <section id=" skills" class="mt-6 rounded-xl border border-gray-200 bg-white">
-      <div class="p-4">
-        <h2 class="text-lg font-semibold">Skills</h2>
-        <p class="text-sm text-gray-700">Frontend</p>
-      </div>
-
-      <div class="divide-y divide-gray-200">
-        <div class="p-4">
-          <p class="text-sm font-medium">Tech Stack</p>
-          <div class="mt-3 flex flex-wrap gap-2">
-            <span class="rounded-full bg-gray-200 text-gray-900 px-3 py-1 text-xs font-medium">React</span>
-            <span class="rounded-full bg-gray-200 text-gray-900 px-3 py-1 text-xs font-medium">Next.js</span>
-            <span class="rounded-full bg-gray-200 text-gray-900 px-3 py-1 text-xs font-medium">TypeScript</span>
-            <span class="rounded-full bg-[#3b3b4b] text-white/80 px-3 py-1 text-xs font-medium">Tailwind</span>
-          </div>
-        </div>
-
-        <div class="p-4">
-          <p class="text-sm font-medium">Mini Cards</p>
-          <div class="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2">
-            <div class="rounded-lg border border-gray-200 p-3 shadow-sm text-center">
-              <p class="text-sm font-semibold">About Me</p>
-              <p class="text-xs text-gray-700">한림대학교 소프트웨어학부 <br /> 2학년 재학중</p>
-            </div>
-            <div class="rounded-lg border border-gray-200 p-3 shadow-sm text-center">
-              <p class="text-sm font-semibold">Interest</p>
-              <p class="text-xs text-gray-700">프론트엔드 · 정보보안 · 암호</p>
-            </div>
-            <div class="rounded-lg border border-gray-200 p-3 shadow-sm text-center col-span-2 sm:col-span-2">
-              <p class="text-sm font-semibold">Currently</p>
-              <p class="text-xs text-gray-700">암호응용연구실 학부연구생으로 활동중.</p>
-              <p class="text-xs text-gray-700">프론트엔드와 백엔드 공부중.</p>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="mt-6">
-      <h2 class="text-lg font-semibold mb-3">Projects</h2>
-
-      <div class="grid grid-cols-1 gap-3">
-        <!-- 프로젝트 카드 1 -->
-        <article class="rounded-xl border border-gray-200 bg-white p-4 shadow-sm hover:shadow">
-          <h3 class="font-semibold">Calculator</h3>
-
-          <p class="mt-2 text-sm text-gray-700">
-            계산기 만들기 프로젝트입니다.
-          </p>
-
-          <div class="mt-3 flex gap-2">
-            <span class="rounded-full bg-gray-200 text-gray-900 px-3 py-1 text-xs font-medium">Next.js</span>
-            <span class="rounded-full bg-gray-200 text-gray-900 px-3 py-1 text-xs font-medium">TypeScript</span>
-            <span class="rounded-full bg-gray-200 text-gray-900 px-3 py-1 text-xs font-medium">Tailwind</span>
-          </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <article onclick="showView('about')" class="cursor-pointer bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-all">
+          <div class="text-2xl mb-3">👤</div>
+          <h3 class="font-bold text-xl mb-2">About Me</h3>
+          <p class="text-gray-600 text-sm mb-4">학부연구생 활동 및 기술 스택에 대한 상세 자기소개 페이지입니다.</p>
+          <span class="text-blue-500 font-bold text-xs">페이지 이동 →</span>
         </article>
 
-        <!-- 👻⭐ 프로젝트 카드 2 + 위의 카드 똑같이 만들어보기 -->
-        <article class="rounded-xl border border-gray-200 bg-white p-4 shadow-sm hover:shadow">
-          <h3 class="font-semibold">Portfoliopage</h3>
-
-          <p class="mt-2 text-sm text-gray-700">
-            자기소개 페이지입니다.
-          </p>
-
-          <div class="mt-3 flex gap-2">
-            <span class="rounded-full bg-gray-200 text-gray-900 px-3 py-1 text-xs font-medium">Infrastructure</span>
-            <span class="rounded-full bg-gray-200 text-gray-900 px-3 py-1 text-xs font-medium">NetworkSecurity</span>
-          </div>
+        <article onclick="showView('calc')" class="cursor-pointer bg-white rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-all">
+          <div class="text-2xl mb-3">🔢</div>
+          <h3 class="font-bold text-xl mb-2">Calculator</h3>
+          <p class="text-gray-600 text-sm mb-4">Bootstrap과 JS를 활용하여 만든 실시간 계산기 프로젝트입니다.</p>
+          <span class="text-blue-500 font-bold text-xs">기능 실행 →</span>
         </article>
+      </div>
+    </main>
 
-    <!-- CONTACT: focus ring, disabled -->
-    <section id="contact" class="mt-6 rounded-xl border border-gray-200 bg-white p-4">
-      <h2 class="text-lg font-semibold">Contact</h2>
-      <p class="text-sm text-gray-700">문의사항 있을 시 메일주세요.</p>
+    <main id="about-view" class="view-section">
+      <div class="bg-white rounded-3xl border border-gray-200 overflow-hidden shadow-sm">
+        <div class="h-32 bg-[#3b3b4b]"></div>
+        <div class="px-8 pb-8">
+          <div class="flex justify-between items-end -mt-12 mb-6">
+            <div class="w-28 h-28 rounded-2xl border-4 border-white shadow-md overflow-hidden bg-gray-200">
+                <img src="권주용.jpg" alt="권주용 사진" class="w-full h-full">
+            </div>
+            <button onclick="showView('home')" class="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg text-sm font-bold">홈으로 돌아가기</button>
+          </div>
+          <h2 class="text-2xl font-bold mb-1">권주용</h2>
+          <p class="text-blue-600 font-semibold mb-6">서버 및 보안 연구 (학부연구생)</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="space-y-4">
+              <h4 class="font-bold border-b pb-2">인적 사항</h4>
+              <p class="text-sm text-gray-700"><strong>소속:</strong> 한림대학교 소프트웨어학부 4학년</p>
+              <p class="text-sm text-gray-700"><strong>전공:</strong> 빅데이터 전공</p>
+              <p class="text-sm text-gray-700"><strong>활동:</strong> 머신러닝연구실 학부연구생</p>
+            </div>
+            <div class="space-y-4">
+              <h4 class="font-bold border-b pb-2">관심 분야</h4>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-gray-100 px-3 py-1 rounded-full text-xs">시스템보안</span>
+                <span class="bg-gray-100 px-3 py-1 rounded-full text-xs">네트워크보안</span>
+                <span class="bg-gray-100 px-3 py-1 rounded-full text-xs">서버인프라</span>
+                <span class="bg-gray-100 px-3 py-1 rounded-full text-xs">백엔드</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
-      <form class="mt-4 flex flex-col gap-3">
-        <label class="text-sm font-medium">
-          Email
-          <input class="mt-1 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm
-                   focus:outline-none focus:ring-2 focus:ring-[#3b3b4b]/30" type="email" placeholder="you@example.com" />
-        </label>
+    <main id="calc-view" class="view-section py-8">
+      <div class="max-w-xs mx-auto">
+        <div class="mb-4 text-center">
+          <button onclick="showView('home')" class="btn btn-sm btn-outline-secondary">← 메인으로</button>
+        </div>
+        <div class="card shadow-lg border-0 bg-light" style="border-radius: 1.5rem;">
+          <div class="card-body p-4">
+            <h6 class="text-center mb-3 text-muted fw-bold">Bootstrap Calc</h6>
+            <input type="text" id="display" class="form-control mb-3 text-end fs-2 fw-bold border-0" value="0" disabled style="height: 60px; border-radius: 1rem; background: #fff;">
 
-        <label class="text-sm font-medium">
-          Message
-          <!-- 👻 focus 실습 + 위에 input처럼 똑같이 만들어보기 -->
-          <textarea class="mt-1 w-full rounded-lg border border-gray-300 bg-white px-3 py-2 text-sm resize-none 
-                   " rows="3" placeholder="메시지를 입력하세요"></textarea>
-        </label>
-        <!-- 👻 hover 실습 -->
-        <button class="select-none rounded-lg bg-[#3b3b4b] px-4 py-2 text-sm font-semibold text-white
-                 " type="button" disabled>
-          Send
-        </button>
-      </form>
-    </section>
+            <div class="row g-2 mb-2">
+              <div class="col-3"><button class="btn btn-white w-100 py-3 shadow-sm" onclick="append(7)">7</button></div>
+              <div class="col-3"><button class="btn btn-white w-100 py-3 shadow-sm" onclick="append(8)">8</button></div>
+              <div class="col-3"><button class="btn btn-white w-100 py-3 shadow-sm" onclick="append(9)">9</button></div>
+              <div class="col-3"><button class="btn btn-primary w-100 py-3 shadow-sm" onclick="setOp('/')">÷</button></div>
+            </div>
+            <div class="row g-2 mb-2">
+              <div class="col-3"><button class="btn btn-white w-100 py-3 shadow-sm" onclick="append(4)">4</button></div>
+              <div class="col-3"><button class="btn btn-white w-100 py-3 shadow-sm" onclick="append(5)">5</button></div>
+              <div class="col-3"><button class="btn btn-white w-100 py-3 shadow-sm" onclick="append(6)">6</button></div>
+              <div class="col-3"><button class="btn btn-primary w-100 py-3 shadow-sm" onclick="setOp('*')">×</button></div>
+            </div>
+            <div class="row g-2 mb-2">
+              <div class="col-3"><button class="btn btn-white w-100 py-3 shadow-sm" onclick="append(1)">1</button></div>
+              <div class="col-3"><button class="btn btn-white w-100 py-3 shadow-sm" onclick="append(2)">2</button></div>
+              <div class="col-3"><button class="btn btn-white w-100 py-3 shadow-sm" onclick="append(3)">3</button></div>
+              <div class="col-3"><button class="btn btn-primary w-100 py-3 shadow-sm" onclick="setOp('-')">-</button></div>
+            </div>
+            <div class="row g-2">
+              <div class="col-6"><button class="btn btn-white w-100 py-3 shadow-sm" onclick="append(0)">0</button></div>
+              <div class="col-3"><button class="btn btn-warning w-100 py-3 shadow-sm text-white" onclick="clearDisplay()">C</button></div>
+              <div class="col-3"><button class="btn btn-success w-100 py-3 shadow-sm" onclick="calculate()">=</button></div>
+            </div>
+            <div class="row g-2 mt-2">
+              <div class="col-12"><button class="btn btn-primary w-100" onclick="setOp('+')">+</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
-    <!-- 하단 바 저작권 표시 -->
-    <footer class="mt-6 text-center text-sm text-gray-700">
-      <p>© 2026 한림대학교 ooo</p>
+    <footer id="contact" class="mt-12 py-8 border-t border-gray-200 text-center">
+      <p class="text-sm text-gray-500 font-medium">© 2026 권주용 Portfolio. 한림대학교 빅데이터 전공.</p>
+      <p class="text-xs text-gray-400 mt-1">문의: your-email@example.com</p>
     </footer>
   </div>
-</div>
-    <script src='https://cdn.tailwindcss.com'></script>
-<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js'></script>
-  </body>
-  
+
+  <script>
+    /* 1. 화면 전환 기능 */
+    function showView(viewId) {
+      document.querySelectorAll('.view-section').forEach(section => {
+        section.style.display = 'none';
+      });
+      document.getElementById(viewId + '-view').style.display = 'block';
+      window.scrollTo(0, 0);
+    }
+
+    /* 2. 계산기 로직 */
+    const display = document.getElementById('display');
+    let expression = '';
+
+    function append(val) {
+      if (display.value === '0') display.value = '';
+      display.value += val;
+      expression += val;
+    }
+    function setOp(op) {
+      expression += op;
+      display.value = '0';
+    }
+    function clearDisplay() {
+      display.value = '0';
+      expression = '';
+    }
+    function calculate() {
+      try {
+        const result = eval(expression);
+        display.value = result;
+        expression = result.toString();
+      } catch (e) {
+        display.value = 'Error';
+        expression = '';
+      }
+    }
+  </script>
+</body>
 </html>
